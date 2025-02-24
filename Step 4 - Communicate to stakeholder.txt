@@ -1,0 +1,23 @@
+Hi John Doe,
+
+I hope this message finds you well. I’m an Analytics Engineer on the Marketing Analytics team, and I’ve been working on the development of data models for 'Fetch Rewards' data. 
+These models will serve as the foundation for downstream analysis and visualizations. 
+
+I wanted to share a few key findings that I encountered while architecting the data models, and I would greatly appreciate your guidance on a few important questions.
+    1. While the process of loading data from the source to our Snowflake instance went smoothly, I wanted to inquire about the update cadence you would prefer for this data. 
+       Specifically, is there a requirement for how fresh the data should be for reporting purposes?
+    2. How do you plan to use this data for reporting? Are there specific grains or levels of detail you're most interested in? For instance, do you often analyze data at the item 
+       level? Understanding this is crucial for optimizing the design of the data model. For example, if you frequently analyze the REWARDRECEIPTSTATUS, I could include it in the 
+       fact table; otherwise, it may be better suited for a dimension table. My approach tends to favor minimizing text and redundant data in fact tables to enhance performance.
+    3. While I am pleased to report that there are no duplicates in the receipts table, I did come across a few data quality concerns:
+    4. The pointsearned field in the receipts table is nearly always null. Is this expected? If not, we may need to address this at the source.
+    5. Several fields, such as BONUSPOINTSEARNED, BONUSPOINTSEARNEDREASON, POINTSAWARDEDDATE, FINISHEDDATE, and PURCHASEDITEMCOUNT, are null approximately 50% of the time.
+    6. The totalspent field is missing values in 40% of the records, which is concerning. Could you clarify the business implications of this data gap?
+    7. We have identified at least 148 receipts where we were unable to map the userId to the dim_users table.
+    8. I also conducted a quick check comparing totalspent in the receipts to the total price in the receipts' item list. 
+       There are 57 receipts where the values do not match. While the discrepancy is not too large, I wanted to confirm if I’m using the correct field. I used finalPrice, 
+       but should I be referencing item price instead?
+
+I would be happy to discuss these findings in more detail and would appreciate any clarification you can provide. Please feel free to reach out with any questions or concerns.
+
+Thank you for your time and assistance.
